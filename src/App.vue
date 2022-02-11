@@ -1,6 +1,7 @@
 <template>
   <div id="app">
-    <Header />
+    <!-- TODO passa solo generi -->
+    <Header :album-genre="albums" />
     <main>
       <section id="albums">
         <div class="container">
@@ -10,7 +11,6 @@
             :album-poster="album.poster"
             :album-title="album.title"
             :album-author="album.author"
-            :album-genre="album.genre"
             :album-year="album.year"
           />
         </div>

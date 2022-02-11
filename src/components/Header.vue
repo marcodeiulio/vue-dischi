@@ -1,10 +1,14 @@
 <template>
   <header>
     <select name="genre" id="genre-select">
-      <option value="Rock">Rock</option>
-      <option value="Pop">Pop</option>
-      <option value="Jazz">Jazz</option>
-      <option value="Metal">Metal</option>
+      <option value="null">Choose</option>
+      <option
+        v-for="(album, index) in albumGenre"
+        :key="index"
+        :value="album.genre"
+      >
+        {{ album.genre }}
+      </option>
     </select>
   </header>
 </template>
@@ -12,6 +16,7 @@
 <script>
 export default {
   name: "Header",
+  props: ["albumGenre"],
 };
 </script>
 
