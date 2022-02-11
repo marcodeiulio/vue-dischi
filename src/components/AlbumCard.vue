@@ -27,14 +27,24 @@ export default {
 <style scoped lang="scss">
 #album_card {
   background-color: #2e3a46;
-  height: 250px;
+  height: 280px;
   width: 150px;
-  padding: 5px;
+  padding: 10px;
   margin: 20px;
   color: white;
+  text-align: center;
+
+  h3 {
+    margin-bottom: 10px;
+  }
+  p {
+    color: grey;
+    font-size: 0.85rem;
+    font-weight: lighter;
+  }
 
   img {
-    width: 140px;
+    width: 130px;
     height: auto;
   }
 }
