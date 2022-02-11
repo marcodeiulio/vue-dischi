@@ -48,21 +48,7 @@ export default {
 </script>
 
 <style lang="scss">
-body {
-  background-color: #1e2d3b;
-}
-* {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-img {
-  max-width: 100%;
-}
-
+@import "./assets/sass/style.scss";
 #albums {
   .container {
     width: 1080px;
