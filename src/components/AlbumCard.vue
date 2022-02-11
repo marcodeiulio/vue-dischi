@@ -27,7 +27,7 @@ export default {
 <style scoped lang="scss">
 @import "../assets/sass/_vars.scss";
 #album_card {
-  background-color: $card-color;
+  background-color: $secondary-color;
   height: 280px;
   width: 150px;
   padding: 10px;

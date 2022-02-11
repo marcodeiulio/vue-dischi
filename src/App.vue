@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header />
     <main>
       <section id="albums">
         <div class="container">
@@ -20,11 +21,13 @@
 
 <script>
 import AlbumCard from "./components/AlbumCard.vue";
+import Header from "./components/Header.vue";
 import axios from "axios";
 export default {
   name: "App",
   components: {
     AlbumCard,
+    Header,
   },
   data() {
     return {
