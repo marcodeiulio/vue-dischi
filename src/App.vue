@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <!-- TODO passa solo generi -->
-    <Header :album-genre="albums" />
+    <Header :album-genre="albums" @genre-select="searchGenre" />
     <main>
       <section id="albums">
         <div class="container">
           <AlbumCard
-            v-for="(album, index) in albums"
+            v-for="(album, index) in filteredByGenre"
             :key="index"
             :album-poster="album.poster"
             :album-title="album.title"
@@ -31,8 +31,17 @@ export default {
   },
   data() {
     return {
+      val: undefined,
       albums: [],
     };
+  },
+  computed: {
+    filteredByGenre() {
+      const val = this.val;
+      return this.albums.filter((album) => {
+        return album.genre.toLowerCase().includes(val);
+      });
+    },
   },
   methods: {
     getAlbums() {
@@ -42,6 +51,10 @@ export default {
           this.albums = res.data.response;
           console.log(this.albums);
         });
+    },
+    searchGenre(value) {
+      this.val = value;
+      console.log("Value:" + this.val);
     },
   },
   mounted() {

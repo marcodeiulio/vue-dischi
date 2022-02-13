@@ -1,11 +1,11 @@
 <template>
   <header>
-    <select name="genre" id="genre-select">
+    <select name="genre" @change="$emit('genre-select', $event.target.value)">
       <option value="null">Choose</option>
       <option
         v-for="(album, index) in albumGenre"
         :key="index"
-        :value="album.genre"
+        :value="album.genre.toLowerCase()"
       >
         {{ album.genre }}
       </option>
@@ -17,6 +17,9 @@
 export default {
   name: "Header",
   props: ["albumGenre"],
+  data() {
+    return {};
+  },
 };
 </script>
 
