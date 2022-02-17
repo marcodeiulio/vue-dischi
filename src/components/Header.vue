@@ -1,6 +1,6 @@
 <template>
   <header>
-    <option-select :options="genres" @change-option="genreOption" />
+    <OptionSelect :options="genres" @change-option="genreOption" />
   </header>
 </template>
 
@@ -14,7 +14,7 @@ export default {
   props: ["genres"],
   methods: {
     genreOption(selectedGenre) {
-      this.$emit("genreOption", selectedGenre);
+      this.$emit("genre-option", selectedGenre);
     },
   },
 };

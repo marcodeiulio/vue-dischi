@@ -20,7 +20,7 @@ export default {
   },
   methods: {
     changeOption() {
-      this.$emit("changeOption", this.selectedOption);
+      this.$emit("change-option", this.selectedOption);
     },
   },
 };
