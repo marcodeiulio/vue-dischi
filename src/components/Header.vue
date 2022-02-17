@@ -1,24 +1,21 @@
 <template>
   <header>
-    <select name="genre" @change="$emit('genre-select', $event.target.value)">
-      <option value="null">Choose</option>
-      <option
-        v-for="(album, index) in albumGenre"
-        :key="index"
-        :value="album.genre.toLowerCase()"
-      >
-        {{ album.genre }}
-      </option>
-    </select>
+    <option-select :options="genres" @change-option="genreOption" />
   </header>
 </template>
 
 <script>
+import OptionSelect from "./OptionSelect.vue";
 export default {
   name: "Header",
-  props: ["albumGenre"],
-  data() {
-    return {};
+  components: {
+    OptionSelect,
+  },
+  props: ["genres"],
+  methods: {
+    genreOption(selectedGenre) {
+      this.$emit("genreOption", selectedGenre);
+    },
   },
 };
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <!-- TODO passa solo generi -->
-    <Header :album-genre="albums" @genre-select="searchGenre" />
+    <Header :genres="genres" @genre-option="searchGenre" />
     <main>
       <section id="albums">
         <div class="container">
@@ -31,15 +31,16 @@ export default {
   },
   data() {
     return {
-      val: undefined,
+      selectedGenre: undefined,
       albums: [],
+      genres: [],
     };
   },
   computed: {
     filteredByGenre() {
-      const val = this.val;
+      const selectedGenre = this.selectedGenre;
       return this.albums.filter((album) => {
-        return album.genre.toLowerCase().includes(val);
+        return album.genre.includes(selectedGenre);
       });
     },
   },
@@ -50,11 +51,20 @@ export default {
         .then((res) => {
           this.albums = res.data.response;
           console.log(this.albums);
+          this.getGenres();
         });
     },
-    searchGenre(value) {
-      this.val = value;
-      console.log("Value:" + this.val);
+    searchGenre(selectedGenre) {
+      this.selectedGenre = selectedGenre;
+      console.log("Selected Genre:" + this.selectedGenre);
+    },
+    getGenres() {
+      this.albums.forEach((album) => {
+        const { genre } = album;
+        if (!this.genres.includes(genre)) {
+          this.genres.push(genre);
+        }
+      });
     },
   },
   mounted() {
